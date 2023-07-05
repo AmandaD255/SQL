@@ -1,0 +1,30 @@
+--Create a store database
+
+CREATE TABLE store (id INTEGER PRIMARY KEY, item TEXT, price INTEGER, aisle INTEGER, quantity INTEGER);
+
+INSERT INTO store VALUES (1,"hats",15,3,20);
+INSERT INTO store VALUES (2,"shirts",20,1,15);
+INSERT INTO store VALUES (3,"pants",50,2,20);
+INSERT INTO store VALUES (4,"socks",8,3,30);
+INSERT INTO store VALUES (5,"underwear",10,3,22);
+INSERT INTO store VALUES (6,"bras",25,3,15);
+INSERT INTO store VALUES (7,"rings",10,5,10);
+INSERT INTO store VALUES (8,"necklaces",25,5,8);
+INSERT INTO store VALUES (9,"bracelets",15,5,10);
+INSERT INTO store VALUES (10,"shoes",55,6,20);
+INSERT INTO store VALUES (11,"perfume",45,7,10);
+INSERT INTO store VALUES (12,"nail polish",10,7,10);
+INSERT INTO store VALUES (13,"lotion",5,7,12);
+INSERT INTO store VALUES (14,"lip stick",8,7,9);
+INSERT INTO store VALUES (15,"face masks",8,7,15);
+
+--display the database ordered by price
+
+SELECT * FROM store
+ORDER BY price desc;
+
+--What are the most 5 expensive items?
+
+SELECT id, item, price FROM store
+ORDER BY price desc
+limit 5;
