@@ -1,0 +1,27 @@
+SELECT * 
+FROM superstore
+LIMIT 5;
+
+-- Order the items by price
+SELECT *
+FROM superstore
+ORDER BY price DESC;
+
+-- What is the cheapest item sold in the superstore?
+SELECT MIN(price) AS Price,item_name
+FROM superstore
+GROUP BY item_name
+ORDER BY MIN(price)
+LIMIT 1;
+
+-- What is the sum of all prices in the kitchen supplies category?
+SELECT SUM(price), category
+FROM superstore
+WHERE category='Kitchen Supplies';
+
+--Which item has the lowest stock?
+SELECT MIN(stock_quantity),item_name
+FROM superstore
+GROUP BY item_name
+ORDER BY MIN(stock_quantity)
+LIMIT 1;
