@@ -43,3 +43,22 @@ LIMIT 5;
 --What was the average tempo from this list?
 SELECT AVG(tempo) AS Average_Tempo
 FROM BIT_DB.Spotifydata;
+
+
+--Calculate the average popularity for the artists in the Spotify data table.
+--Then, for every artist with an average popularity of 90 or above, show their name,
+--their average popularity, and label them as a "Top Star".
+
+WITH average_popularity_CTE AS (
+SELECT s.artist_name,
+AVG(s.popularity) AS average_popularity
+FROM SpotifyData s
+GROUP BY s.artist_name
+)
+
+SELECT artist_name,
+        average_popularity,
+        'Top Star' AS tag
+FROM average_popularity_CTE
+WHERE average_popularity >=90;
+
